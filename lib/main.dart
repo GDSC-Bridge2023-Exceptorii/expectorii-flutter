@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screen/way_to_use.dart';
+import 'screen/camera.dart';
 import 'screen/list_view_page.dart';
 
 void main() {
@@ -36,18 +36,17 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF2F5FC),
+      backgroundColor: const Color(0xffF2F5FC),
       body: Column(
         children: [
           Stack(
             children: [
               Container(
-                width: 350,
-                height: 180,
+                width: 360,
+                height: 240,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(
-                        'lib/assets/rectangle.png'),
+                    image: AssetImage('lib/assets/rectangle.png'),
                     fit: BoxFit.fill,
                   ),
                   shape: BoxShape.rectangle,
@@ -57,7 +56,7 @@ class _MainPageState extends State<MainPage> {
                 top: 20,
                 child: SizedBox(
                   width: 350,
-                  height: 150,
+                  height: 230,
                   child: Align(
                     alignment: Alignment.center,
                     child: Text(
@@ -74,21 +73,21 @@ class _MainPageState extends State<MainPage> {
             ],
           ),
           const SizedBox(height: 10), // 여백
-            Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.black,
                   backgroundColor: Colors.white,
-                  minimumSize: const Size(50, 30),
+                  minimumSize: const Size(80, 50),
                   // 버튼을 둥글게 처리
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                 ),
                 child: const Text(
                   "한국",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 24),
                 ),
                 onPressed: () {},
               ),
@@ -97,83 +96,75 @@ class _MainPageState extends State<MainPage> {
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.black,
                   backgroundColor: Colors.white,
-                  minimumSize: const Size(50, 30),
+                  minimumSize: const Size(80, 50),
                   // 버튼을 둥글게 처리
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                 ),
                 child: const Text(
                   "日本",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 24),
                 ),
                 onPressed: () {},
               ),
               const SizedBox(width: 30),
             ],
-            ),
+          ),
 
           const SizedBox(height: 50), // 여백
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: const <Widget>[
-            Text(
-              "__에서 할 수 있는 일",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+              Text(
+                "ELDY에서 할 수 있는 일",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            SizedBox(width: 230),
-          ],
+              SizedBox(width: 140),
+              SizedBox(height: 100),
+            ],
           ),
 
           const SizedBox(height: 10), // 여백
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Stack(
-                children: <Widget>[
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.black,
-                      backgroundColor: Color(0xffFFA338),
-                      minimumSize: const Size(360, 150),
-                      // 버튼을 둥글게 처리
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    child: Stack(
-                      children: const [
-                        Image(
-                          image: AssetImage('lib/assets/arrow.png'),
-                          width: 20,
-                          height: 20,
-                        ),
-                        Text(
-                          "앱 사용법",
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          "앱 사용법",
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (_) => const ListviewPage()),
-                      );
-                    },
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.black,
+                  backgroundColor: Color(0xffFFA338),
+                  minimumSize: const Size(360, 150),
+                  // 버튼을 둥글게 처리
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                ],
+                ),
+                child: Stack(
+                  children: const [
+                    /*
+                    Image(
+                      image: AssetImage('lib/assets/arrow.png'),
+                      width: 80,
+                      height: 80,
+                    ),
+                    */
+                    Text(
+                      "앱 사용법",
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                  ],
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const ListviewPage()),
+                  );
+                },
               ),
 
               const SizedBox(height: 20), // 여백
@@ -193,7 +184,12 @@ class _MainPageState extends State<MainPage> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const CameraExample()),
+                  );
+                },
               ),
             ],
           ),

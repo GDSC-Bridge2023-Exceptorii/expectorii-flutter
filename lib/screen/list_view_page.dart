@@ -48,6 +48,7 @@ class _ListviewPageState extends State<ListviewPage> {
       backgroundColor: Colors.grey,
       appBar: AppBar(
         title: const Text('앱 사용법'),
+        centerTitle: true,
       ),
       body: Column(
         children: [
