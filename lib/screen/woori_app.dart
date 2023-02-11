@@ -15,8 +15,8 @@ class WooriApp extends StatelessWidget {
         backgroundColor: Colors.blue,
         elevation: 0.0, // 앱 바가 떠있는 효과 제거
       ),
-      body: Center(
-        child: const Text("우리은행 페이지"),
+      body: const Center(
+        child: Text("우리은행 페이지"),
       ),
     );
   }
