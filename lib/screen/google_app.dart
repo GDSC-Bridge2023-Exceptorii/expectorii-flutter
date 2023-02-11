@@ -1,3 +1,4 @@
+import 'package:expectorii/screen/ko_google_1.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
@@ -82,23 +83,33 @@ class _GoogleAppState extends State<GoogleApp> {
                     icon: const Icon(Icons.stop),
                   ),
                   const SizedBox(width: 20), // 여백
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.white,
-                      backgroundColor: Colors.orange,
-                      minimumSize: const Size(250, 50),
-                      // 버튼을 둥글게 처리
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                    ),
-                    child: const Text(
-                      "시작하기",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                  Column(
+                    children: [
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.orange,
+                          minimumSize: const Size(250, 50),
+                          // 버튼을 둥글게 처리
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                        ),
+                        child: const Text(
+                          "시작하기",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const KGoogleSearch1()),
+                          );
+                        },
                       ),
-                    ),
-                    onPressed: () {},
+                    ],
                   ),
                 ],
               ),

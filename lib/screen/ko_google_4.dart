@@ -1,12 +1,12 @@
+import 'package:expectorii/screen/ko_google_3.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const KGoogleSearch4());
 }
 
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class KGoogleSearch4 extends StatelessWidget {
+  const KGoogleSearch4({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +77,7 @@ class SearchPage extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 40),
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
@@ -99,11 +99,16 @@ class SearchPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const KGoogleSearch3()),
+                  );
+                },
                 child: Text(
                   '이전',
                   style: TextStyle(
-                    fontSize:16,
+                    fontSize: 16,
                     color: Colors.grey[600],
                   ),
                 ),
@@ -113,12 +118,12 @@ class SearchPage extends StatelessWidget {
                 child: Text(
                   '다음',
                   style: TextStyle(
-                    fontSize:16,
+                    fontSize: 16,
                     color: Colors.grey[600],
                   ),
                 ),
               ),
-            ],  
+            ],
           ),
         ],
       ),
@@ -130,10 +135,8 @@ class SearchPage extends StatelessWidget {
 //   // make this a stateless widget and pass in the step and active
 //   final int step;
 //   final bool active;
-  
+
 // }
-
-
 
 class CircledNumbersRow extends StatelessWidget {
   const CircledNumbersRow({super.key});
