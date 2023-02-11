@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screen/way_to_use.dart';
 
 void main() {
   runApp(const MyApp());
@@ -121,9 +122,14 @@ class _MainPageState extends State<MainPage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const WayToUse()),
+                      );
+                    },
                   ),
-                  Text("안녕"),
+                  const Text("안녕"),
                 ],
               ),
 
