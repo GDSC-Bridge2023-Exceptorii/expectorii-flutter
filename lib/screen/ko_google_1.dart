@@ -100,7 +100,18 @@ class SearchPag1 extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => Center(
+                      child: Container(
+                        color: Colors.white,
+                        width: 10.0,
+                        height: 10.0,
+                      ),
+                    ),
+                  );
+                },
               ),
               const SizedBox(height: 10),
               Container(
