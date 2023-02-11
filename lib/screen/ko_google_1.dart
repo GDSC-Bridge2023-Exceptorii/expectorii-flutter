@@ -41,9 +41,9 @@ class SearchPag1 extends StatelessWidget {
         children: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
+            children: const <Widget>[
               // add CircledNumbersRow here
-              const CircledNumbersRow(),
+              CircledNumbersRow(),
             ],
           ),
           const SizedBox(height: 40),
@@ -86,7 +86,7 @@ class SearchPag1 extends StatelessWidget {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.black,
-                  backgroundColor: Color(0xffFFA338),
+                  backgroundColor: const Color(0xffFFA338),
                   minimumSize: const Size(120, 50),
                   // 버튼을 둥글게 처리
                   shape: RoundedRectangleBorder(
