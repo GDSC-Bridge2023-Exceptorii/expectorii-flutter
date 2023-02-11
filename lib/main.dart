@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screen/way_to_use.dart';
+import 'screen/list_view_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -168,7 +169,7 @@ class _MainPageState extends State<MainPage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (_) => const WayToUse()),
+                        MaterialPageRoute(builder: (_) => const ListviewPage()),
                       );
                     },
                   ),

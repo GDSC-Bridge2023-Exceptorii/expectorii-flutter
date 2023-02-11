@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class GoogleSearch extends StatelessWidget {
-  const GoogleSearch({super.key});
+class WooriRemit extends StatelessWidget {
+  const WooriRemit({super.key});
 
   @override
   Widget build(BuildContext context) {

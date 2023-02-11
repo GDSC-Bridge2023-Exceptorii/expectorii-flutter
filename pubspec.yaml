@@ -34,6 +34,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  video_player: ^2.5.1
 
 dev_dependencies:
   flutter_test:
@@ -59,6 +60,13 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - lib/assets/rectangle.png
+    - lib/assets/google.png
+    - lib/assets/wooribank.png
+    - lib/assets/kakao.png
+    - lib/assets/tmoney.png
+    - lib/assets/naver.png
+    - lib/assets/google_video_edit.mp4
+    - lib/assets/google_video_edited.mp4
     - lib/assets/google_4.png
     - lib/assets/arrow.png
 
