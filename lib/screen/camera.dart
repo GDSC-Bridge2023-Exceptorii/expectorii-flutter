@@ -1,16 +1,21 @@
 import 'dart:io';
+import 'dart:js';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+
 
 class CameraExample extends StatefulWidget {
   const CameraExample({Key? key}) : super(key: key);
 
   @override
-  _CameraExampleState createState() => _CameraExampleState();
+  CameraExampleState createState() => CameraExampleState();
 }
 
-class _CameraExampleState extends State<CameraExample> {
+class CameraExampleState extends State<CameraExample> {
   File? _image;
   final picker = ImagePicker();
 
@@ -27,11 +32,11 @@ class _CameraExampleState extends State<CameraExample> {
   Widget showImage() {
     return Container(
         color: const Color(0xffd0cece),
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.width,
+        width: MediaQuery.of(context as BuildContext).size.width,
+        height: MediaQuery.of(context as BuildContext).size.width,
         child: Center(
             child: _image == null
-                ? Text('No image selected.')
+                ? const Text('No image selected.')
                 : Image.file(File(_image!.path))));
   }
 
@@ -56,24 +61,75 @@ class _CameraExampleState extends State<CameraExample> {
               children: <Widget>[
                 // 카메라 촬영 버튼
                 FloatingActionButton(
-                  child: Icon(Icons.add_a_photo),
                   tooltip: 'pick Iamge',
                   onPressed: () async {
                     getImage(ImageSource.camera);
                   },
+                  child: const Icon(Icons.add_a_photo),
                 ),
 
                 // 갤러리에서 이미지를 가져오는 버튼
                 FloatingActionButton(
-                  child: Icon(Icons.wallpaper),
                   tooltip: 'pick Iamge',
                   onPressed: () {
                     getImage(ImageSource.gallery);
                   },
+                  child: const Icon(Icons.wallpaper),
                 ),
+                    // Send image button
+              FloatingActionButton(
+                tooltip: 'Send Image',
+                onPressed: () {
+                  sendImage(_image!.readAsBytesSync(), <Future> {
+                    getImage(ImageSource.camera)});
+                  },)],
+            ),
+                child: const Icon(Icons.send),
+                ),
+
               ],
             )
           ],
-        ));
+        ))
+  }
+}
+
+
+Future<void> sendImage(Uint8List binaryImage, Set<Future> set) async {
+  try {
+    final response = await http.post(
+      'https://c03b-35-233-212-191.ngrok.io/images-OCR' as Uri,
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      body: binaryImage,
+    );
+
+    if (response.statusCode == 200) {
+      final responseBody = json.decode(response.body);
+      final translatedSummary = responseBody['string'];
+      print('Translated summary: $translatedSummary');
+    } else {
+      throw Exception('Failed to send image');
+    }
+  } catch (e) {
+    showDialog(
+      context: context as BuildContext,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Error'),
+          content: Text('Failed to send image. Please try again.'),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Try again'),
+              onPressed: () {
+                sendImage(binaryImage);
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }
