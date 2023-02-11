@@ -35,27 +35,45 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Color(0xffF2F5FC),
       body: Column(
         children: [
           Stack(
-            children: const [
-              Image(
-                image: AssetImage('lib/assets/rectangle.png'),
-                width: 400,
+            children: [
+              Container(
+                width: 350,
                 height: 180,
-              ), // 배경 이미지
-              Text(
-                "안녕하세요.",
-                style: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                        'lib/assets/rectangle.png'),
+                    fit: BoxFit.fill,
+                  ),
+                  shape: BoxShape.rectangle,
                 ),
               ),
+              const Positioned(
+                top: 20,
+                child: SizedBox(
+                  width: 350,
+                  height: 150,
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      '안녕하세요!\n디지털 교육을 도와드려요!',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
           const SizedBox(height: 10), // 여백
-          Row(
+            Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               ElevatedButton(
@@ -84,22 +102,31 @@ class _MainPageState extends State<MainPage> {
                       borderRadius: BorderRadius.circular(10)),
                 ),
                 child: const Text(
-                  "일본",
+                  "日本",
                   style: TextStyle(fontSize: 18),
                 ),
                 onPressed: () {},
               ),
+              const SizedBox(width: 30),
             ],
-          ),
-          const SizedBox(height: 5), // 여백
-          const Text(
-            "__에서 할 수 있는 일",
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
             ),
+
+          const SizedBox(height: 50), // 여백
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: const <Widget>[
+            Text(
+              "__에서 할 수 있는 일",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(width: 230),
+          ],
           ),
-          const SizedBox(height: 60), // 여백
+
+          const SizedBox(height: 10), // 여백
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -108,19 +135,35 @@ class _MainPageState extends State<MainPage> {
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.black,
-                      backgroundColor: Colors.white,
+                      backgroundColor: Color(0xffFFA338),
                       minimumSize: const Size(360, 150),
                       // 버튼을 둥글게 처리
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    child: const Text(
-                      "앱 사용법",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    child: Stack(
+                      children: const [
+                        Image(
+                          image: AssetImage('lib/assets/arrow.png'),
+                          width: 20,
+                          height: 20,
+                        ),
+                        Text(
+                          "앱 사용법",
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          "앱 사용법",
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
                     ),
                     onPressed: () {
                       Navigator.push(
@@ -129,7 +172,6 @@ class _MainPageState extends State<MainPage> {
                       );
                     },
                   ),
-                  const Text("안녕"),
                 ],
               ),
 
@@ -137,14 +179,14 @@ class _MainPageState extends State<MainPage> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.black,
-                  backgroundColor: Colors.white,
+                  backgroundColor: Color(0xff077690),
                   minimumSize: const Size(360, 150),
                   // 버튼을 둥글게 처리
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                 ),
                 child: const Text(
-                  "일본",
+                  "뉴스 살펴보기",
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
