@@ -103,12 +103,14 @@ class SearchPag1 extends StatelessWidget {
                 onPressed: () {
                   showDialog(
                     context: context,
-                    builder: (context) => Center(
-                      child: Container(
-                        color: Colors.white,
-                        width: 10.0,
-                        height: 10.0,
-                      ),
+                    builder: (BuildContext context) => AlertDialog(
+                      title: Text('힌트'),
+                      content: Text('검색이라고 적힌 부분을 눌러보세요!'),
+                      actions: [
+                        ElevatedButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            child: Text('확인')),
+                      ],
                     ),
                   );
                 },
