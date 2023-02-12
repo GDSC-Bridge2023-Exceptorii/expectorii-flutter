@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
+main()
+// call the main function to run the app using WooriApp
+{
+  runApp(WooriApp());
+}
+
+
+
 class WooriApp extends StatefulWidget {
   const WooriApp({
     Key? key,

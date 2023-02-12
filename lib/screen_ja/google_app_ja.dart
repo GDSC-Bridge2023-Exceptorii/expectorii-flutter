@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
+
+main() {
+  runApp(const GoogleAppJa()
+
+  );
+}
 class GoogleAppJa extends StatefulWidget {
   const GoogleAppJa({
     Key? key,
@@ -10,7 +16,7 @@ class GoogleAppJa extends StatefulWidget {
   _GoogleAppJaState createState() => _GoogleAppJaState();
 }
 
-class _GoogleAppJaState extends State<GoogleAppJa> {
+class _GoogleAppJaState extends State<GoogleA ppJa> {
   final VideoPlayerController _controller = VideoPlayerController.asset(
     'lib/assets/google_video_edit.mp4',
   );
