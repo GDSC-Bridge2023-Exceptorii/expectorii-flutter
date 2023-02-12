@@ -1,35 +1,19 @@
 import 'package:flutter/material.dart';
-import 'screen/way_to_use.dart';
-import 'screen/list_view_page.dart';
-import 'screen_ja/main_ja.dart';
+import '../main.dart';
+import 'google_app_ja.dart';
+import 'way_to_use_ja.dart';
+import 'list_view_page_ja.dart';
 
-void main() {
-  runApp(const MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Expectorii',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MainPage(),
-    );
-  }
-}
-
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+class MainJa extends StatefulWidget {
+  const MainJa({super.key});
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  _MainJaState createState() => _MainJaState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainJaState extends State<MainJa> {
   bool isKorean = true;
   bool isJapanese = false;
   late List<bool> isSelected = [isKorean, isJapanese];
@@ -62,7 +46,8 @@ class _MainPageState extends State<MainPage> {
                   child: Align(
                     alignment: Alignment.center,
                     child: Text(
-                      '안녕하세요!\n디지털 교육을 도와드려요!',
+
+                      'こんにちは！\nデジタル教育をお手伝いします',
                       textAlign: TextAlign.left,
                       style: TextStyle(
                         fontSize: 24.0,
@@ -75,7 +60,7 @@ class _MainPageState extends State<MainPage> {
             ],
           ),
           const SizedBox(height: 10), // 여백
-            Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               ElevatedButton(
@@ -91,7 +76,12 @@ class _MainPageState extends State<MainPage> {
                   "한국",
                   style: TextStyle(fontSize: 24),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const MainPage()),
+                  );
+                },
               ),
               const SizedBox(width: 10), // 여백
               ElevatedButton(
@@ -107,30 +97,25 @@ class _MainPageState extends State<MainPage> {
                   "日本",
                   style: TextStyle(fontSize: 24),
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (_) => const MainJa()),
-                  );
-                },
+                onPressed: () {},
               ),
               const SizedBox(width: 30),
             ],
-            ),
+          ),
 
           const SizedBox(height: 80), // 여백
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: const <Widget>[
-            Text(
-              "     엘디에서 할 수 있는 일",
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+              Text(
+                "     Eldyでできること",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            SizedBox(width: 100, height: 40),
-          ],
+              SizedBox(width: 100, height: 40),
+            ],
           ),
 
           const SizedBox(height: 10), // 여백
@@ -165,7 +150,7 @@ class _MainPageState extends State<MainPage> {
                         Align(
                           alignment: Alignment.bottomLeft,
                           child: Text(
-                            "앱 사용법",
+                            "アプリの使い方",
                             style: TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.bold,
@@ -176,7 +161,7 @@ class _MainPageState extends State<MainPage> {
                         Align(
                           alignment: Alignment.bottomLeft,
                           child: Text(
-                            "모바일 앱 사용에 어려움을 해결해 드려요!",
+                            "モバイルアプリの使用の難しさを解決します!",
                             style: TextStyle(
                                 fontSize: 15,
                                 color: Colors.white
@@ -189,7 +174,7 @@ class _MainPageState extends State<MainPage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (_) => const ListviewPage()),
+                        MaterialPageRoute(builder: (_) => const ListviewPageJa()),
                       );
                     },
                   ),
@@ -219,11 +204,11 @@ class _MainPageState extends State<MainPage> {
                         height: 40,
                       ),
                     ),
-                    SizedBox(height: 30), // 여백
+                    SizedBox(height: 10), // 여백
                     Align(
                       alignment: Alignment.bottomLeft,
                       child: Text(
-                        "뉴스 살펴보기",
+                        "ニュースを見る",
                         style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
@@ -234,10 +219,10 @@ class _MainPageState extends State<MainPage> {
                     Align(
                       alignment: Alignment.bottomLeft,
                       child: Text(
-                        "뉴스 요약부터 가짜 뉴스 판별까지 도와드려요!",
+                        "ニュースの要約からフェイクニュースの判別までお手伝いします!",
                         style: TextStyle(
                             fontSize: 15,
-                            color: Colors.white
+                            color: Colors.white,
                         ),
                       ),
                     ),
@@ -245,10 +230,13 @@ class _MainPageState extends State<MainPage> {
                   ],
                 ),
                 onPressed: () {
+
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (_) => const ListviewPage()),
+                    MaterialPageRoute(builder: (_) => const ListviewPageJa()),
                   );
+
+
                 },
               ),
             ],

@@ -35,11 +35,6 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   video_player: ^2.5.1
-  camera: ^0.10.3
-  path_provider: ^2.0.12
-  image_picker: ^0.8.6+1
-  http: ^0.13.5
-  convert: ^3.1.1
 
 dev_dependencies:
   flutter_test:
@@ -72,9 +67,14 @@ flutter:
     - lib/assets/naver.png
     - lib/assets/google_video_edit.mp4
     - lib/assets/google_video_edited.mp4
+    - lib/assets/woori_edit_2.mp4
     - lib/assets/google_4.png
     - lib/assets/arrow.png
-    - lib/assets/google_search.png
+    - lib/assets/japan_bank.png
+    - lib/assets/line.png
+    - lib/assets/Mask group.png
+    - lib/assets/google_map.png
+    - lib/assets/dis.png
 
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

@@ -2,13 +2,13 @@ import 'package:expectorii/screen/google_app.dart';
 import 'package:expectorii/screen/woori_app.dart';
 import 'package:flutter/material.dart';
 
-class ListviewPage extends StatefulWidget {
-  const ListviewPage({
+class ListviewPageJa extends StatefulWidget {
+  const ListviewPageJa({
     Key? key,
   }) : super(key: key);
 
   @override
-  _ListviewPageState createState() => _ListviewPageState();
+  _ListviewPageJaState createState() => _ListviewPageJaState();
 }
 
 const navigatorList = [
@@ -21,10 +21,10 @@ const navigatorList = [
 
 const imageIcon = [
   'lib/assets/google.png',
-  'lib/assets/wooribank.png',
-  'lib/assets/kakao.png',
-  'lib/assets/tmoney.png',
-  'lib/assets/naver.png',
+  'lib/assets/japan_bank.png',
+  'lib/assets/line.png',
+  'lib/assets/Mask group.png',
+  'lib/assets/dis.png',
 ];
 
 class ProductModel {
@@ -34,14 +34,14 @@ class ProductModel {
 }
 
 const productList = [
-  ProductModel("구글", "검색에 대해 배울 수 있어요."),
-  ProductModel("우리은행", "송금에 대해 배울 수 있어요."),
-  ProductModel("카카오톡", "대화에 필요한 기능을 배울 수 있어요."),
-  ProductModel("티머니", "버스 예매에 대해 배울 수 있어요."),
-  ProductModel("네이버지도", "교통 정보에 대해 확인할 수 있어요."),
+  ProductModel("グーグル", "検索について学ぶことができます。"),
+  ProductModel("三井住友", "送金について学ぶことができます。"),
+  ProductModel("ライン", "会話に必要な機能を学ぶことができます。"),
+  ProductModel("ナビタイム", "バスの前売りについて学ぶことができます。"),
+  ProductModel("グーグルマップ", "交通情報の確認について学ぶことができます。"),
 ];
 
-class _ListviewPageState extends State<ListviewPage> {
+class _ListviewPageJaState extends State<ListviewPageJa> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +51,7 @@ class _ListviewPageState extends State<ListviewPage> {
           color: Colors.black, // <-- SEE HERE
         ),
         centerTitle: true,
-        title: const Text('앱 사용법',
+        title: const Text('アプリの使い方',
           style: TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
@@ -64,13 +64,13 @@ class _ListviewPageState extends State<ListviewPage> {
           Container(
             padding: const EdgeInsets.only(top: 20.0, bottom: 20, left: 70, right: 70),
             decoration: const BoxDecoration(
-              color: Colors.white,
+                color: Colors.white,
                 borderRadius: BorderRadius.all(Radius.circular(10))
             ),
             child: const Text(
-              "모바일 앱 사용에 대해 배워봅시다.",
+              "モバイルアプリの使い方について学びましょう！",
               style: TextStyle(
-                fontSize: 15,
+                  fontSize: 15,
                   color: Colors.grey
               ),
             ),
@@ -97,10 +97,10 @@ class _ListviewPageState extends State<ListviewPage> {
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: const BorderRadius.all(Radius.circular(10)),
-                                border: Border.all(
-                                  color: Colors.grey,
-                                  width: 1,
-                              )
+                                  border: Border.all(
+                                    color: Colors.grey,
+                                    width: 1,
+                                  )
                               ),
                               margin: const EdgeInsets.only(top: 30, left: 20, right: 20),
                               width: 200,
@@ -118,7 +118,7 @@ class _ListviewPageState extends State<ListviewPage> {
                                       color: Colors.white,
                                       child: Column(
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             productList[index].title,
@@ -129,7 +129,7 @@ class _ListviewPageState extends State<ListviewPage> {
                                           ),
                                           Container(
                                             margin:
-                                                const EdgeInsets.only(top: 10),
+                                            const EdgeInsets.only(top: 10),
                                             child: Text(
                                               productList[index].desc1,
                                               style: const TextStyle(

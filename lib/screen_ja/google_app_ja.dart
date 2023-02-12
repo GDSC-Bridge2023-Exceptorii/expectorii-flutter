@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-class GoogleApp extends StatefulWidget {
-  const GoogleApp({
+class GoogleAppJa extends StatefulWidget {
+  const GoogleAppJa({
     Key? key,
   }) : super(key: key);
 
   @override
-  _GoogleAppState createState() => _GoogleAppState();
+  _GoogleAppJaState createState() => _GoogleAppJaState();
 }
 
-class _GoogleAppState extends State<GoogleApp> {
+class _GoogleAppJaState extends State<GoogleAppJa> {
   final VideoPlayerController _controller = VideoPlayerController.asset(
     'lib/assets/google_video_edit.mp4',
   );
@@ -38,7 +38,7 @@ class _GoogleAppState extends State<GoogleApp> {
           color: Colors.black, // <-- SEE HERE
         ),
         title: const Text(
-          "구글 사용법",
+          "グーグルの使い方",
           style: TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
@@ -100,7 +100,7 @@ class _GoogleAppState extends State<GoogleApp> {
                           borderRadius: BorderRadius.circular(10)),
                     ),
                     child: const Text(
-                      "시작하기",
+                      "はじまり",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

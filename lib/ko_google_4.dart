@@ -39,9 +39,9 @@ class SearchPage extends StatelessWidget {
         children: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
+            children: <Widget>[
               // add CircledNumbersRow here
-              CircledNumbersRow(),
+              const CircledNumbersRow(),
             ],
           ),
           const SizedBox(height: 40),
