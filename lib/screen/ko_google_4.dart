@@ -1,4 +1,5 @@
 import 'package:expectorii/screen/ko_google_3.dart';
+import 'package:expectorii/screen/success.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -114,7 +115,12 @@ class SearchPage extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const KSuccessPage()),
+                  );
+                },
                 child: Text(
                   '다음',
                   style: TextStyle(

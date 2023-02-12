@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -21,8 +19,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-
 class SuccessPage extends StatelessWidget {
   const SuccessPage({super.key});
 
@@ -32,6 +28,7 @@ class SuccessPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+          const SizedBox(width: 1800), // 여백
           const Text(
             'よくできました！',
             style: TextStyle(
@@ -71,5 +68,3 @@ class SuccessPage extends StatelessWidget {
     );
   }
 }
-
-

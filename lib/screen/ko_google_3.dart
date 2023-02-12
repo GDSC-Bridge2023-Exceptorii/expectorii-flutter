@@ -94,7 +94,20 @@ class SearchPage extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                      title: Text('힌트'),
+                      content: Text('자판 위에 검색이라고 적힌 부분을 눌러보세요!'),
+                      actions: [
+                        ElevatedButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            child: Text('확인')),
+                      ],
+                    ),
+                  );
+                },
               ),
               const SizedBox(height: 10),
               Container(

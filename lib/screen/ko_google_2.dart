@@ -98,7 +98,20 @@ class SearchPag2 extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                      title: Text('힌트'),
+                      content: Text('자음, 모음이 적힌 자판을 평소 글씨를 적는 순서에 따라 눌러보세요!'),
+                      actions: [
+                        ElevatedButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            child: Text('확인')),
+                      ],
+                    ),
+                  );
+                },
               ),
               const SizedBox(height: 10),
               Container(
