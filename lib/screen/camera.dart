@@ -1,12 +1,10 @@
 import 'dart:io';
-import 'dart:js';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
-
 
 class CameraExample extends StatefulWidget {
   const CameraExample({Key? key}) : super(key: key);
@@ -25,6 +23,9 @@ class CameraExampleState extends State<CameraExample> {
 
     setState(() {
       _image = File(image!.path); // 가져온 이미지를 _image에 저장
+      hitAPI();
+      //sendImagePng(Image.file(File(_image!.path)));
+      //sendImage(_image!.readAsBytes() as Uint8List);
     });
   }
 
@@ -47,58 +48,89 @@ class CameraExampleState extends State<CameraExample> {
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
     return Scaffold(
-        backgroundColor: const Color(0xfff4f3f9),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(height: 25.0),
-            showImage(),
-            const SizedBox(
-              height: 50.0,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                // 카메라 촬영 버튼
-                FloatingActionButton(
-                  tooltip: 'pick Iamge',
-                  onPressed: () async {
-                    getImage(ImageSource.camera);
-                  },
-                  child: const Icon(Icons.add_a_photo),
-                ),
+      backgroundColor: const Color(0xfff4f3f9),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const SizedBox(height: 25.0),
+          showImage(),
+          const SizedBox(
+            height: 50.0,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              // 카메라 촬영 버튼
+              FloatingActionButton(
+                tooltip: 'pick Iamge',
+                onPressed: () async {
+                  getImage(ImageSource.camera);
+                },
+                child: const Icon(Icons.add_a_photo),
+              ),
 
-                // 갤러리에서 이미지를 가져오는 버튼
-                FloatingActionButton(
-                  tooltip: 'pick Iamge',
-                  onPressed: () {
-                    getImage(ImageSource.gallery);
-                  },
-                  child: const Icon(Icons.wallpaper),
-                ),
-                    // Send image button
+              // 갤러리에서 이미지를 가져오는 버튼
+              FloatingActionButton(
+                tooltip: 'pick Iamge',
+                onPressed: () {
+                  getImage(ImageSource.gallery);
+                },
+                child: const Icon(Icons.wallpaper),
+              ),
+
+              // Send image button
               FloatingActionButton(
                 tooltip: 'Send Image',
-                onPressed: () {
-                  sendImage(_image!.readAsBytesSync(), <Future> {
-                    getImage(ImageSource.camera)});
-                  },)],
-            ),
+                onPressed: () {},
                 child: const Icon(Icons.send),
-                ),
-
-              ],
-            )
-          ],
-        ))
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
 
+Future<void> hitAPI() async {
+  try {
+    final response = await http.get(
+      'https://4652-35-233-212-191.ngrok.io/' as Uri,
+    );
 
-Future<void> sendImage(Uint8List binaryImage, Set<Future> set) async {
+    if (response.statusCode == 200) {
+      final responseBody = json.decode(response.body);
+      print('Translated summary: hit!');
+    } else {
+      throw Exception('Failed to send image');
+    }
+  } catch (e) {}
+}
+
+Future<void> sendImagePng(Image imageFile) async {
   try {
     final response = await http.post(
-      'https://c03b-35-233-212-191.ngrok.io/images-OCR' as Uri,
+      'https://4652-35-233-212-191.ngrok.io/images-OCR/' as Uri,
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      body: Image,
+    );
+
+    if (response.statusCode == 200) {
+      final responseBody = json.decode(response.body);
+      final translatedSummary = responseBody['string'];
+      print('Translated summary: $translatedSummary');
+    } else {
+      throw Exception('Failed to send image');
+    }
+  } catch (e) {}
+}
+
+Future<void> sendImage(Uint8List binaryImage) async {
+  try {
+    final response = await http.post(
+      'https://4652-35-233-212-191.ngrok.io/images-OCR/' as Uri,
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -112,24 +144,5 @@ Future<void> sendImage(Uint8List binaryImage, Set<Future> set) async {
     } else {
       throw Exception('Failed to send image');
     }
-  } catch (e) {
-    showDialog(
-      context: context as BuildContext,
-      builder: (context) {
-        return AlertDialog(
-          title: Text('Error'),
-          content: Text('Failed to send image. Please try again.'),
-          actions: <Widget>[
-            TextButton(
-              child: Text('Try again'),
-              onPressed: () {
-                sendImage(binaryImage);
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
+  } catch (e) {}
 }
