@@ -1,3 +1,4 @@
+import 'package:expectorii/screen/camera.dart';
 import 'package:flutter/material.dart';
 import 'screen/way_to_use.dart';
 import 'screen/list_view_page.dart';
@@ -47,8 +48,7 @@ class _MainPageState extends State<MainPage> {
                 height: 240,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(
-                        'lib/assets/rectangle.png'),
+                    image: AssetImage('lib/assets/rectangle.png'),
                     fit: BoxFit.fill,
                   ),
                   shape: BoxShape.rectangle,
@@ -75,7 +75,7 @@ class _MainPageState extends State<MainPage> {
             ],
           ),
           const SizedBox(height: 10), // 여백
-            Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               ElevatedButton(
@@ -116,21 +116,21 @@ class _MainPageState extends State<MainPage> {
               ),
               const SizedBox(width: 30),
             ],
-            ),
+          ),
 
           const SizedBox(height: 80), // 여백
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: const <Widget>[
-            Text(
-              "     엘디에서 할 수 있는 일",
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+              Text(
+                "     엘디에서 할 수 있는 일",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            SizedBox(width: 100, height: 40),
-          ],
+              SizedBox(width: 100, height: 40),
+            ],
           ),
 
           const SizedBox(height: 10), // 여백
@@ -169,21 +169,16 @@ class _MainPageState extends State<MainPage> {
                             style: TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white
-                            ),
+                                color: Colors.white),
                           ),
                         ),
                         Align(
                           alignment: Alignment.bottomLeft,
                           child: Text(
                             "모바일 앱 사용에 어려움을 해결해 드려요!",
-                            style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.white
-                            ),
+                            style: TextStyle(fontSize: 15, color: Colors.white),
                           ),
                         ),
-
                       ],
                     ),
                     onPressed: () {
@@ -227,27 +222,22 @@ class _MainPageState extends State<MainPage> {
                         style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white
-                        ),
+                            color: Colors.white),
                       ),
                     ),
                     Align(
                       alignment: Alignment.bottomLeft,
                       child: Text(
                         "뉴스 요약부터 가짜 뉴스 판별까지 도와드려요!",
-                        style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.white
-                        ),
+                        style: TextStyle(fontSize: 15, color: Colors.white),
                       ),
                     ),
-
                   ],
                 ),
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (_) => const ListviewPage()),
+                    MaterialPageRoute(builder: (_) => const CameraExample()),
                   );
                 },
               ),

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import '../main.dart';
+import 'camera_ja.dart';
 import 'google_app_ja.dart';
 import 'way_to_use_ja.dart';
 import 'list_view_page_ja.dart';
-
-
 
 class MainJa extends StatefulWidget {
   const MainJa({super.key});
@@ -31,8 +30,7 @@ class _MainJaState extends State<MainJa> {
                 height: 240,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(
-                        'lib/assets/rectangle.png'),
+                    image: AssetImage('lib/assets/rectangle.png'),
                     fit: BoxFit.fill,
                   ),
                   shape: BoxShape.rectangle,
@@ -46,7 +44,6 @@ class _MainJaState extends State<MainJa> {
                   child: Align(
                     alignment: Alignment.center,
                     child: Text(
-
                       'こんにちは！\nデジタル教育をお手伝いします',
                       textAlign: TextAlign.left,
                       style: TextStyle(
@@ -154,27 +151,23 @@ class _MainJaState extends State<MainJa> {
                             style: TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white
-                            ),
+                                color: Colors.white),
                           ),
                         ),
                         Align(
                           alignment: Alignment.bottomLeft,
                           child: Text(
                             "モバイルアプリの使用の難しさを解決します!",
-                            style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.white
-                            ),
+                            style: TextStyle(fontSize: 15, color: Colors.white),
                           ),
                         ),
-
                       ],
                     ),
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (_) => const ListviewPageJa()),
+                        MaterialPageRoute(
+                            builder: (_) => const ListviewPageJa()),
                       );
                     },
                   ),
@@ -212,8 +205,7 @@ class _MainJaState extends State<MainJa> {
                         style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white
-                        ),
+                            color: Colors.white),
                       ),
                     ),
                     Align(
@@ -221,22 +213,20 @@ class _MainJaState extends State<MainJa> {
                       child: Text(
                         "ニュースの要約からフェイクニュースの判別までお手伝いします!",
                         style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
+                          fontSize: 15,
+                          color: Colors.white,
                         ),
                       ),
                     ),
-
                   ],
                 ),
                 onPressed: () {
-
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (_) => const ListviewPageJa()),
+                    MaterialPageRoute(
+                      builder: (_) => const CameraExampleJa(),
+                    ),
                   );
-
-
                 },
               ),
             ],

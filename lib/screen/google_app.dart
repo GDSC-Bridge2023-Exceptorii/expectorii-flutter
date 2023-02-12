@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
+import 'ko_google_1.dart';
+
 class GoogleApp extends StatefulWidget {
   const GoogleApp({
     Key? key,
@@ -106,7 +108,13 @@ class _GoogleAppState extends State<GoogleApp> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => const KGoogleSearch1()),
+                      );
+                    },
                   ),
                 ],
               ),
