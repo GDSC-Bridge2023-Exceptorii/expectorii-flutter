@@ -3,18 +3,21 @@
 <p align="center"><img width="250" alt="logo-title-light" src="https://github.com/GDSC-Bridge2023-Exceptorii/expectorii-flutter/assets/68230434/30676c98-63be-418c-8035-4588e71edb3f"></p>
 
 ## 💭 Problem
+Economic inequality in the last few decades have become a big problem all over the world. This might be caused because of the importance of technological literacy - those who can not use it have many problems in the world, especially during Covid. Specifically, Japan and Korea has a lot of adults and seniors that want to join in the digital economy - upskill themselves. However, there is a lack of resources to help them bootstrap. 
 
-
-
-## 💊 About Eldy
+## 🔍 About Eldy
 <b>Empowering Older Adults: Improving Senior Digital Literacy</b>
 
 
 
+
 ## 🎯 Our SDGs Goals
+<p><b>Inequality.</b> Specifically, inequality between those with good grasp of tech and those without</p>
+<p align="center"><img width="150" alt="logo-title-light" src="https://github.com/GDSC-Bridge2023-Exceptorii/expectorii-flutter/assets/68230434/b9d1ac9f-86a6-454c-a706-adf38b8c6a67"></p>
 
 
 ## 🛠️ Tech Architecture
+<p align="center"><img width="150" alt="logo-title-light" src=""></p>
 
 
 ## 📱 How to use
