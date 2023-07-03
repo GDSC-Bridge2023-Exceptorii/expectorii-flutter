@@ -1,6 +1,8 @@
-# expectorii
+# 💻 2023-GDSC-Bridge-Hackathon
+[The Bridge] is the 2023 East Asia GDSC Global Hackathon headed by chapters from Korea, Japan. The mission of the hackathon is to solve for one or more of the United Nations 17 Sustainable Development Goals.
+<p align="center"><img width="500" alt="logo-title-light" src=""></p>
 
-A new Flutter project.
+
 
 ## Getting Started
 
